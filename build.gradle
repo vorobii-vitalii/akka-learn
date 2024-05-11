@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://repo.akka.io/maven"
+    }
+}
+
+def versions = [
+        ScalaBinary: "2.13"
+]
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    // Akka
+    implementation platform("com.typesafe.akka:akka-bom_${versions.ScalaBinary}:2.9.3")
+    implementation "com.typesafe.akka:akka-actor-typed_${versions.ScalaBinary}"
+
+    // Akka Cluster
+    implementation "com.typesafe.akka:akka-cluster-typed_${versions.ScalaBinary}"
+
+    // Logging
+    implementation "ch.qos.logback:logback-classic:1.2.13"
+}
+
+test {
+    useJUnitPlatform()
+}
