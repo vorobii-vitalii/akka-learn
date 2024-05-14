@@ -24,8 +24,21 @@ dependencies {
     implementation platform("com.typesafe.akka:akka-bom_${versions.ScalaBinary}:2.9.3")
     implementation "com.typesafe.akka:akka-actor-typed_${versions.ScalaBinary}"
 
+    // Akka testing
+    testImplementation "com.typesafe.akka:akka-persistence-testkit_${versions.ScalaBinary}"
+
     // Akka Cluster
     implementation "com.typesafe.akka:akka-cluster-typed_${versions.ScalaBinary}"
+    implementation "com.typesafe.akka:akka-serialization-jackson_${versions.ScalaBinary}"
+
+    // Akka persistence
+    implementation "com.typesafe.akka:akka-persistence-typed_${versions.ScalaBinary}"
+
+    // Akka Sharding
+    implementation "com.typesafe.akka:akka-cluster-sharding-typed_${versions.ScalaBinary}"
+
+    // Akka Remote
+    implementation "com.typesafe.akka:akka-remote_${versions.ScalaBinary}"
 
     // Logging
     implementation "ch.qos.logback:logback-classic:1.2.13"
